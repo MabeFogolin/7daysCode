@@ -54,5 +54,50 @@ if(resposta == 1){
        alert('Opção inválida.');
     }
 }
-
 mensagens()
+
+//Desafio de possíveis destinos
+function opcoesArea(){
+    //Declaração das variáveis
+    let escolhaArea; 
+    let respostaBack = '';
+    let respostaFront = '';
+    let especializar;
+    let listaLinguagens = [];
+    let tecnologias;
+    
+    do {
+        escolhaArea = prompt('Qual carreira você quer seguir? Digite 1 para Front-end ou 2 para Back-end. ');
+        if (escolhaArea == 1) {
+            respostaFront = prompt('Você quer aprender React ou Vue?').toUpperCase();   
+        } else if (escolhaArea == 2) {
+            respostaBack = prompt('Você quer aprender C# ou Java?').toUpperCase();
+        } else {
+            alert('Opção inválida');
+            respostaBack = '';
+            respostaFront = '';
+        }
+    } while (escolhaArea != 1 && escolhaArea  != 2);
+    
+    do {
+        especializar = prompt('Você quer seguir se especializando na sua área? Se sim, digite 1.\n Caso queira ser Fullstack, digite 2.');
+        if (especializar == 1) {
+            alert('Que incrível que você queira se especializar, na Alura há diversos cursos para impulsionar sua carreira.');
+        } else if (especializar == 2) {
+            alert('Para se desenvolver como Fullstack, você pode se inscrever nas diversas formações da Alura, há cursos tanto para Back-end quanto para Front-end.');
+        } else {
+            alert('Opção inválida');
+        }
+    } while (especializar != 1 && especializar != 2);
+    
+    do {
+        tecnologias = prompt('Quais tecnologias ou linguagens você gostaria de especializar ou aprender? Digite -1 caso queira finalizar a inserção');
+        if(tecnologias == -1){
+            let mensagem = listaLinguagens.length == 1 ? alert(`Uau, bom saber que você quer aprender mais sobre ${listaLinguagens}`) : alert(`Impressionante, você quer saber sobre ${listaLinguagens.length} tecnologias (${listaLinguagens})`);
+        } else {
+            listaLinguagens.push(tecnologias);
+        }
+        
+    }while(tecnologias != -1)
+}
+opcoesArea()
