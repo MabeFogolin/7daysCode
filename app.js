@@ -101,3 +101,31 @@ function opcoesArea(){
     }while(tecnologias != -1)
 }
 opcoesArea()
+
+//Função para jogo de adivinhar número aleatório
+function desafioAleatorio(){
+    let numeroAleatorio = Math.floor(Math.random() * 10) + 1;
+    let tentativas = 1;
+    let chute = prompt('Tente acertar o número aleatório, insira o seu chute!');
+    let mensagemTentativas
+    
+    
+    while(tentativas < 3){
+        if(chute == numeroAleatorio){
+            let mensagemTentativas = tentativas > 1 && chute == numeroAleatorio ? alert(`Você acertou o número aleatório ${numeroAleatorio} com ${tentativas} tentativas!!! `) : alert(`Parabéns, você acertou o número aleatório ${numeroAleatorio} com ${tentativas} tentativa!!!`)
+            break;
+        } else if (numeroAleatorio < chute) {
+            alert('Poxa, você não acertou o número mas ainda pode acertar! Você tentar acertar em até 3 tentativas \n O seu chute foi maior que o número.');
+            chute = prompt('Insira sua próxima tentativa');
+            tentativas ++;
+        } else if(numeroAleatorio > chute){
+            alert('Poxa, você não acertou o número mas ainda pode acertar! Você tentar acertar em até 3 tentativas \n O seu chute foi menor que o número.');
+            chute = prompt('Insira sua próxima tentativa');
+            tentativas ++;
+        }
+        }
+    if (tentativas = 3){
+        alert(`Você não acertou o número aleatório. O número era ${numeroAleatorio}.`)
+    }
+}
+desafioAleatorio()
