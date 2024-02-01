@@ -129,3 +129,57 @@ function desafioAleatorio(){
     }
 }
 desafioAleatorio()
+
+// Desafio da lista de compras
+function listaDeCompras(){
+let frutas = [];
+let itensLimpeza = [];
+let congelados = [];
+let outros = [];
+
+let mensagemInicio;
+
+while (mensagemInicio !== -1) {
+  mensagemInicio = prompt('Você deseja adicionar algo à lista? Se sim, digite 1, caso contrário, -1 para encerrar');
+
+  if (mensagemInicio == 1) {
+    let selecao;
+    let produto;
+
+    do {
+      selecao = prompt('Escolha uma das categorias disponíveis a partir da numeração\n 1- Frutas\n 2- Itens de limpeza\n 3- Congelados\n 4- Outros\n 5- Finalizar');
+
+      if (selecao == 1) {
+        produto = prompt('Informe o produto da lista');
+        frutas.push(produto);
+      } else if (selecao == 2) {
+        produto = prompt('Informe o produto da lista');
+        itensLimpeza.push(produto);
+      } else if (selecao == 3) {
+        produto = prompt('Informe o produto da lista');
+        congelados.push(produto);
+      } else if (selecao == 4) {
+        produto = prompt('Informe o produto da lista');
+        outros.push(produto);
+      } else if (selecao == 5) {
+        alert('Finalizando a lista');
+      } else {
+        alert('Opção inválida')
+      }
+
+    } while (selecao != 5);
+
+    alert('Sua lista de compras foi finalizada. Você pode acessá-la através do console.');
+    console.clear();
+    console.log(`Frutas: ${frutas.join(', ')} `);
+    console.log(`Itens de limpeza: ${itensLimpeza.join(', ')} `);
+    console.log(`Congelados: ${congelados.join(', ')} `);
+    console.log(`Outros: ${outros.join(', ')} `);
+
+  } else if (mensagemInicio == -1) {
+    alert('Finalizando o programa');
+    break;
+  }
+}
+}
+listaDeCompras()
