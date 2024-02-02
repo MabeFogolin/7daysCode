@@ -209,3 +209,102 @@ while (mensagemInicio !== -1) {
 }
 }
 listaDeCompras()
+
+//Desafio da calculadora
+
+//Declarando variáveis
+let numero1;
+let numero2;
+let resultado;
+let opcao;
+
+//Criando as funções
+function adicao(){
+  numero1 = parseFloat(prompt('Informe o primeiro número'));
+  numero2 = parseFloat(prompt('Informe o segundo número'));
+  if(isNaN(numero1) || isNaN(numero2)){
+    alert('Informe números válidos');
+    adicao();
+  } else {
+  resultado = numero1 + numero2;
+  alert(`O resultado da soma dos dois números é ${resultado}`);
+  }
+}
+
+function subtracao(){
+  numero1 = parseFloat(prompt('Informe o primeiro número'));
+  numero2 = parseFloat(prompt('Informe o segundo número'));
+  //resultado = numero1 > numero2 ? numero1 - numero2 : numero2 - numero1;
+  if(isNaN(numero1) || isNaN(numero2)){
+    alert('Informe números válidos');
+    subtracao();
+  } else {
+  resultado = numero1 - numero2;
+  alert(`O resultado da subtração dos dois números é ${resultado}`);
+  }
+}
+
+function multiplicacao(){
+  numero1 = parseFloat(prompt('Informe o primeiro número'));
+  numero2 = parseFloat(prompt('Informe o segundo número'));
+  if(isNaN(numero1) || isNaN(numero2)){
+    alert('Informe números válidos');
+    multiplicacao();
+  } else {
+    resultado = numero1 * numero2;
+    alert(`O resultado da multiplicação dos dois números é ${resultado}`);
+  }
+}
+
+function divisao(){
+  numero1 = parseFloat(prompt('Informe o primeiro número'));
+  numero2 = parseFloat(prompt('Informe o segundo número'));
+  //resultado = numero1 > numero2 ? numero1 / numero2 : numero2 / numero1 ;
+  if(isNaN(numero1) || isNaN(numero2)){
+    alert('Informe números válidos');
+    divisao();
+  } else {
+    resultado = numero1 / numero2;
+    alert(`O resultado da divisão dos dois números é ${resultado}`);
+  }
+}
+
+function finalizar(){
+  alert('**** Finalizando a calculadora. ****\n Até mais!');
+}
+
+function opcaoInvalida(){
+  alert('Opção inválida.\n Escolha uma das opções disponíveis no menu.')
+}
+
+function menu(){  
+  opcao = parseInt(prompt('**** Inicializando a calculadora ****\n Escolha uma das operações a seguir\n 1- Adição\n 2- Subtração\n 3- Multiplicação\n 4- Divisão\n 5- Sair\n'));
+}
+
+function calculadora(){
+   menu();
+
+   do{
+    if(opcao == 1){
+      adicao();
+      menu();
+    } else if(opcao == 2){
+      subtracao();
+      menu();
+    } else if(opcao == 3){
+      multiplicacao();
+      menu();
+    } else if(opcao == 4){
+      divisao();
+      menu();
+    } else if(opcao == 5){
+      finalizar();
+      break;
+    } else{
+      opcaoInvalida();
+      menu();
+    }
+   } while(opcao != -1)
+}
+
+calculadora();
