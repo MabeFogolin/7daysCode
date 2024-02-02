@@ -130,7 +130,7 @@ function desafioAleatorio(){
 }
 desafioAleatorio()
 
-// Desafio da lista de compras
+//Desafio da lista de compras
 function listaDeCompras(){
 let frutas = [];
 let itensLimpeza = [];
@@ -147,7 +147,7 @@ while (mensagemInicio !== -1) {
     let produto;
 
     do {
-      selecao = prompt('Escolha uma das categorias disponíveis a partir da numeração\n 1- Frutas\n 2- Itens de limpeza\n 3- Congelados\n 4- Outros\n 5- Finalizar');
+      selecao = prompt('Escolha uma das categorias disponíveis a partir da numeração\n 1- Frutas\n 2- Itens de limpeza\n 3- Congelados\n 4- Outros\n 5- Remover um elemento\n 6- Finalizar');
 
       if (selecao == 1) {
         produto = prompt('Informe o produto da lista');
@@ -161,13 +161,39 @@ while (mensagemInicio !== -1) {
       } else if (selecao == 4) {
         produto = prompt('Informe o produto da lista');
         outros.push(produto);
-      } else if (selecao == 5) {
+      } else if (selecao ==5){
+        let categoriaRemover = prompt('Escolha a categoria que deseja remover o item\n 1- Frutas\n 2- Itens de limpeza\n 3- Congelados\n 4- Outros'); 
+        let itemRemover = prompt('Informe o item que deseja remover'); 
+        if (categoriaRemover == 1) { 
+            let index = frutas.indexOf(itemRemover); 
+            if (index !== -1) { frutas.splice(index, 1); 
+                alert('Item removido com sucesso!'); 
+            } else { alert('Item não encontrado na lista de frutas.'); } 
+    } else if (categoriaRemover == 2) { 
+        let index = itensLimpeza.indexOf(itemRemover); 
+        if (index !== -1) { itensLimpeza.splice(index, 1); 
+            alert('Item removido com sucesso!'); 
+        } else { alert('Item não encontrado na lista de itens de limpeza.'); } 
+    } else if (categoriaRemover == 3) { 
+        let index = congelados.indexOf(itemRemover); 
+        if (index !== -1) { congelados.splice(index, 1); 
+            alert('Item removido com sucesso!'); 
+        } else { alert('Item não encontrado na lista de congelados.'); } 
+    } else if (categoriaRemover == 4) { 
+        let index = outros.indexOf(itemRemover); 
+        if (index !== -1) { outros.splice(index, 1); 
+            alert('Item removido com sucesso!'); 
+        } else { alert('Item não encontrado na lista de outros.'); } 
+    } else { alert('Opção inválida'); 
+} 
+
+      } else if (selecao == 6) {
         alert('Finalizando a lista');
       } else {
         alert('Opção inválida')
       }
 
-    } while (selecao != 5);
+    } while (selecao != 6);
 
     alert('Sua lista de compras foi finalizada. Você pode acessá-la através do console.');
     console.clear();
